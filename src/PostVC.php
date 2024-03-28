@@ -1,42 +1,8 @@
 <?php
-/**
- * Post view count plugin main class
- *
- * @package    WordPress
- * @subpackage Post View Count
- * @since      1.0
- */
 
 namespace Aikya\PostViewCount;
 
-/**
- * Post view count main class
- */
 class PostVC {
-
-	/**
-	 * Plugin initialization
-	 */
-	public function init() {
-		add_action( 'init', array( $this, 'init_plugin' ) );
-		register_activation_hook( POSTVC, array( $this, 'activate' ) );
-		register_deactivation_hook( POSTVC, array( $this, 'deactivate' ) );
-	}
-
-	/**
-	 * Plugin activation
-	 */
-	public function activate() {
-		$this->init_plugin();
-		flush_rewrite_rules();
-	}
-
-	/**
-	 * Plugin deactivation
-	 */
-	public function deactivate() {
-		flush_rewrite_rules();
-	}
 
 	/**
 	 * Plugin activation process
@@ -195,6 +161,3 @@ class PostVC {
 		}
 	}
 }
-
-$postvc = new PostVC();
-$postvc->init();

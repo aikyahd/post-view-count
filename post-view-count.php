@@ -24,3 +24,20 @@ define( 'POSTVC', __FILE__ );
 define( 'POSTVC_PATH', plugin_dir_path( POSTVC ) );
 
 require_once __DIR__ . '/vendor/autoload.php';
+
+add_action('init', 'postvc_init_plugin');
+function postvc_init_plugin() {
+    $postvc = new \Aikya\PostViewCount\PostVC();
+    $postvc->init_plugin();
+}
+
+register_activation_hook( POSTVC, 'postvc_activate' );
+function postvc_activate(){
+    postvc_init_plugin();
+    flush_rewrite_rules();
+}
+
+register_deactivation_hook( POSTVC, 'postvc_deactive' );
+function postvc_deactive(){
+    flush_rewrite_rules();
+}
