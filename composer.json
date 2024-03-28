@@ -1,0 +1,17 @@
+{
+    "name": "aikya/post-view-count",
+    "description": "Post view count with shortcode and admin posts list column with sorting.",
+    "type": "project",
+    "license": "GPL",
+    "autoload": {
+        "psr-4": {
+            "Aikya\\PostViewCount\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Aikya Halder"
+        }
+    ],
+    "require": {}
+}
